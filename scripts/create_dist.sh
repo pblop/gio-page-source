@@ -28,7 +28,6 @@ mkdir -p "$CLONE_LOCATION/css"
 mkdir -p "$CLONE_LOCATION/js"
 
 # Copy and build the files
-set +e # Allow errors (if the src/js or the src/scss directory don't exist).
-$SASS_PATH "$GITHUB_WORKSPACE/src/scss":"$CLONE_LOCATION/css"
-cp -rf "$GITHUB_WORKSPACE/src/index.html" "$CLONE_LOCATION/index.html"
-cp -rf "$GITHUB_WORKSPACE/src/js/*" "$CLONE_LOCATION/js"
+$SASS_PATH "$GITHUB_WORKSPACE/src/scss":"$CLONE_LOCATION/css" || :
+cp -rf "$GITHUB_WORKSPACE/src/index.html" "$CLONE_LOCATION/index.html" || :
+cp -rf "$GITHUB_WORKSPACE/src/js/*" "$CLONE_LOCATION/js" || :
