@@ -27,3 +27,4 @@ $YARN_PATH install
 $YARN_PATH build
 
 cp -R "$GITHUB_WORKSPACE/dist/" "$CLONE_LOCATION/"
+ls "$CLONE_LOCATION"
