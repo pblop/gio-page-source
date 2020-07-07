@@ -8,8 +8,6 @@ export COMMIT_HASH=$(git rev-parse HEAD)
 
 cd $CLONE_LOCATION
 
-echo $(ls -la)
-
 # Configure git alias
 git config user.email "action@github.com"
 git config user.name "GitHub Action"
