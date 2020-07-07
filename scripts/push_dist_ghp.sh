@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-export CLONE_LOCATION = "$HOME/github-page"
+export CLONE_LOCATION="$HOME/github-page"
 export GIT_ASKPASS="$GITHUB_WORKSPACE/scripts/git_askpass_helper.sh"
 
 cd $GITHUB_WORKSPACE
