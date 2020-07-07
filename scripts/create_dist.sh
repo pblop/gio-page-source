@@ -22,6 +22,6 @@ mkdir -p "$CLONE_LOCATION/css"
 mkdir -p "$CLONE_LOCATION/js"
 
 # Copy and build the files
-sass "$GITHUB_WORKSPACE/src/scss" "$CLONE_LOCATION/css"
+$SASS_PATH "$GITHUB_WORKSPACE/src/scss" "$CLONE_LOCATION/css"
 cp "$GITHUB_WORKSPACE/src/index.html" "$CLONE_LOCATION/index.html"
 cp "$GITHUB_WORKSPACE/src/js/*" "$CLONE_LOCATION/js"
