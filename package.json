@@ -1,0 +1,21 @@
+{
+  "name": "gio-page-source",
+  "version": "1.0.0",
+  "browser": "./dist/index.html",
+  "repository": "https://github.com/PabloPerezRodriguez/gio-page-source",
+  "author": "Pablo Pérez Rodríguez <pablo.rabanales@gmail.com>",
+  "license": "UNLICENSED",
+  "private": true,
+  "scripts": {
+    "dev": "parcel serve ./src/index.html",
+    "build": "parcel build ./src/index.html"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@parcel/transformer-posthtml": "^2.0.0-alpha.3",
+    "@parcel/transformer-css": "^2.0.0-alpha.3",
+    "@parcel/transformer-postcss": "^2.0.0-alpha.3",
+    "parcel": "^2.0.0-beta.1",
+    "sass": "^1.26.10"
+  }
+}

@@ -2,13 +2,14 @@
 
 export CLONE_LOCATION="$HOME/github-page"
 export GIT_ASKPASS="$GITHUB_WORKSPACE/scripts/git_askpass_helper.sh"
-export SASS_PATH="$HOME/.npm-global/bin/sass"
+export YARN_PATH="$HOME/.npm-global/bin/yarn"
 
 
 # Configure git alias
 git config user.email "action@github.com"
 git config user.name "GitHub Action"
 
+# Remove the clone location (it seems like it's already created and git doesn't like that)
 rm -rf "$CLONE_LOCATION"
 
 # Clone the github.io page repo
@@ -20,11 +21,9 @@ find "$CLONE_LOCATION" -mindepth 1 -maxdepth 1 -not -name 'CNAME' -not -name '.g
 
 ###### Actually build ######
 
-# Create the destination directories
-mkdir -p "$CLONE_LOCATION/css"
-mkdir -p "$CLONE_LOCATION/js"
+# Install dependencies
+cd "$GITHUB_WORKSPACE"
+$YARN_PATH install
+$YARN_PATH build
 
-# Copy and build the files
-$SASS_PATH "$GITHUB_WORKSPACE/src/scss":"$CLONE_LOCATION/css" || :
-cp -rf "$GITHUB_WORKSPACE/src/index.html" "$CLONE_LOCATION/index.html" || :
-cp -rf "$GITHUB_WORKSPACE/src/js/*" "$CLONE_LOCATION/js" || :
+cp -rf "$GITHUB_WORKSPACE/dist" "$CLONE_LOCATION"

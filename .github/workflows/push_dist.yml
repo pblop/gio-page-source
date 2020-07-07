@@ -22,11 +22,11 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
 
-      - name: Install sass compiler
+      - name: Install yarn
         run: |
           mkdir $HOME/.npm-global
           npm config set prefix $HOME/.npm-global
-          npm install -g sass
+          npm install -g yarn
 
       - name: Clone the dist folder from the gh-pages branch and compile the page.
         run: |
