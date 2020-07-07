@@ -2,6 +2,7 @@
 
 export CLONE_LOCATION="$HOME/github-page"
 export GIT_ASKPASS="$GITHUB_WORKSPACE/scripts/git_askpass_helper.sh"
+export SASS_PATH="$HOME/.npm-global/bin/sass"
 
 
 # Configure git alias
@@ -29,5 +30,5 @@ mkdir -p "$CLONE_LOCATION/js"
 # Copy and build the files
 set +e # Allow errors (if the src/js or the src/scss directory don't exist).
 $SASS_PATH "$GITHUB_WORKSPACE/src/scss" "$CLONE_LOCATION/css"
-cp "$GITHUB_WORKSPACE/src/index.html" "$CLONE_LOCATION/index.html"
-cp "$GITHUB_WORKSPACE/src/js/*" "$CLONE_LOCATION/js"
+cp -rf "$GITHUB_WORKSPACE/src/index.html" "$CLONE_LOCATION/index.html"
+cp -rf "$GITHUB_WORKSPACE/src/js/*" "$CLONE_LOCATION/js"

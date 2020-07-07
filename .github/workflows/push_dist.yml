@@ -33,7 +33,6 @@ jobs:
           $GITHUB_WORKSPACE/scripts/create_dist.sh
         env:
           GIT_PASSWORD: ${{ secrets.WORKER_PAT }}
-          SASS_PATH: ${{ env.HOME }}/.npm-global/bin/sass
 
       - name: Pushes the dist folder to the gh-pages branch.
         run: $GITHUB_WORKSPACE/scripts/push_dist_ghp.sh
