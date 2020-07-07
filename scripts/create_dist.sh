@@ -13,8 +13,11 @@ rm -rf "$CLONE_LOCATION"
 # Clone the github.io page repo
 git clone "https://pabloworker@github.com/PabloPerezRodriguez/pabloperezrodriguez.github.io" "$CLONE_LOCATION"
 
+echo ls $CLONE_LOCATION
+
 # Delete every file in the github.io page repo but keep the CNAME file.
-find "$CLONE_LOCATION/" -not -name 'CNAME' -delete
+echo find "$CLONE_LOCATION" -not -name 'CNAME'
+find "$CLONE_LOCATION" -not -name 'CNAME' -delete
 
 
 ###### Actually build ######
