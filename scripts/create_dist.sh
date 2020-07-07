@@ -26,4 +26,4 @@ cd "$GITHUB_WORKSPACE"
 $YARN_PATH install
 $YARN_PATH build
 
-cp -rf "$GITHUB_WORKSPACE/dist/*" "$CLONE_LOCATION"
+cp -rf "$GITHUB_WORKSPACE/dist/" "$CLONE_LOCATION"
