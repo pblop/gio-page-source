@@ -2,7 +2,6 @@
 
 export CLONE_LOCATION="$HOME/github-page"
 export GIT_ASKPASS="$GITHUB_WORKSPACE/scripts/git_askpass_helper.sh"
-export YARN_PATH="$HOME/.npm-global/bin/yarn"
 
 
 # Configure git alias
@@ -23,7 +22,7 @@ find "$CLONE_LOCATION" -mindepth 1 -maxdepth 1 -not -name 'CNAME' -not -name '.g
 
 # Install dependencies
 cd "$GITHUB_WORKSPACE"
-$YARN_PATH install
-$YARN_PATH build
+yarn install
+yarn build
 
 cp -vr $GITHUB_WORKSPACE/dist/* $CLONE_LOCATION/
