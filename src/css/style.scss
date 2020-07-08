@@ -1,3 +1,56 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;1,100;1,300;1,400;1,500&display=swap');
+
+$manrope: 'Manrope', sans-serif;
+$roboto: 'Roboto', sans-serif;
+
+$gray: 25;
+$dark_gray: $gray - 0.2 * $gray;
+$light_gray: $gray + 0.9 * $gray;
+
 body {
-  background-color: lightpink;
+  background-color: rgb($dark_gray, $dark_gray, $dark_gray);
+  font-family: $roboto;
+}
+
+#content {
+  width: 400px;
+  height: 400px;
+
+  // Center vertically and horizontally
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  // A ligter gray shade for the background
+  background-color: rgb($gray, $gray, $gray);
+
+  // Make borders a little bit less sharp
+  border-radius: 10px;
+
+  // Text colour
+  color: rgb(200, 200, 200); // A not so bright white
+
+  h1 {
+    text-align: center;
+    font-family: $manrope;
+  }
+
+  p {
+    margin-left: 2em;
+    margin-right: 2em;
+  }
+}
+
+footer {
+  position: fixed;
+
+  bottom: 1%;
+  text-align: center;
+  width: 100%;
+}
+
+::selection {
+  background-color: rgb($light_gray, $light_gray, $light_gray);
 }
