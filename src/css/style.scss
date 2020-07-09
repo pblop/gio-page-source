@@ -9,13 +9,21 @@ $dark_gray: $gray - 0.2 * $gray;
 $light_gray: $gray + 0.9 * $gray;
 
 body {
+  // Dark gray background
   background-color: rgb($dark_gray, $dark_gray, $dark_gray);
+
+  // Text colour
+  color: rgb(200, 200, 200); // A not so bright white
+
+  // Default font family
   font-family: $roboto;
 }
 
+$content-padding: 2em;
+
 #content {
-  width: 400px;
-  height: 400px;
+  width: 50vh;
+  height: 50vh;
 
   // Center vertically and horizontally
   position: absolute;
@@ -29,22 +37,30 @@ body {
   // Make borders a little bit less sharp
   border-radius: 10px;
 
-  // Text colour
-  color: rgb(200, 200, 200); // A not so bright white
-
   h1 {
+    margin-top: 0;
     text-align: center;
     font-family: $manrope;
   }
 
-  p {
-    margin-left: 2em;
-    margin-right: 2em;
-  }
+  padding: $content-padding;
 }
 
-footer {
+%header_and_footer {
   position: fixed;
+  font-family: $manrope;
+
+  a {
+    text-decoration: none;
+  }
+}
+header {
+  @extend %header_and_footer;
+
+  top: 1%;
+}
+footer {
+  @extend %header_and_footer;
 
   bottom: 1%;
   text-align: center;
@@ -53,4 +69,50 @@ footer {
 
 ::selection {
   background-color: rgb($light_gray, $light_gray, $light_gray);
+}
+
+a {
+  color: rgb(200, 200, 200); // A not so bright white
+}
+
+.icon {
+  width: 3em;
+  height: 3em;
+
+  background-size: 3em 3em;
+  background-repeat: no-repeat;
+
+  &.github {
+    background-image: url('../assets/github-light.svg');
+
+    &:hover {
+      background-image: url('../assets/github-colour.svg');
+    }
+  }
+  &.instagram {
+    background-image: url('../assets/instagram-dark.svg');
+    &:hover {
+      background-image: url('../assets/instagram-colour.svg');
+    }
+  }
+  &.twitter {
+    background-image: url('../assets/twitter-dark.svg');
+    &:hover {
+      background-image: url('../assets/twitter-colour.svg');
+    }
+  }
+}
+
+.icon-list {
+  width: inherit;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: stretch;
+
+  position: absolute;
+  margin-left: -$content-padding;
+  padding: inherit;
+  bottom: 1%;
 }
