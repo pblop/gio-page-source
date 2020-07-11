@@ -36,7 +36,7 @@ with them.
 	The problems with this procedure are:
 	
 	* In order for the mask to load correctly in CSS, I have had to tweak the [`sprite.svg`](src/assets/sprite.svg) file. I've doubled the Instagram symbol, first as a symbol and then as plain svg. This makes the file larger than it could be.  
-	* This mask loading thing makes a second request to get the [`sprite.svg`](src/assets/sprite.svg) file, which for some reason bypasses the cache (or maybe the first request to the sprite.svg file just doesn't get cached).
+	* This mask loading thing makes a second request to get the [`sprite.svg`](src/assets/sprite.svg) file.
 	* I have to do the hard work in CSS, when I have a perfectly functional rendering method in HTML (with the `<svg>` tags).
 	
 	I would love if there was a way to set an `<svg>`'s `fill` to an image, but I haven't found one. If you know of a way, ***please email me.***
