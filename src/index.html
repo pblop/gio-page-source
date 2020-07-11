@@ -1,12 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
+  <!-- pblo.me is open source! You can find the unbuilt code on 
+  https://github.com/PabloPerezRodriguez/gio-page-source (or by clicking on the 
+  GitHub button and going into my repositories (I would prefer you did this
+  because I spent a considerable amount of time making the icons work as I wanted
+  them to do)) -->
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>pblo</title>
+
     <link rel="stylesheet" href="css/style.scss" />
   </head>
   <body>
+    <div id="bg-image" class="lazy"></div>
     <div id="content">
       <h1>Pablo</h1>
       <p>
@@ -16,28 +23,44 @@
       <div class="icon-list">
         <!--Images div-->
         <a
-          class="icon twitter"
           href="https://twitter.com/pablopr3_"
           target="_blank"
           rel="noopener noreferrer"
-        ></a>
+        >
+          <svg class="icon twitter">
+            <use href="assets/sprite.svg#twitter"> </use>
+          </svg>
+        </a>
         <a
-          class="icon instagram"
           href="https://instagram.com/pablopr3_"
           target="_blank"
           rel="noopener noreferrer"
-        ></a>
+        >
+          <svg class="icon instagram">
+            <use href="assets/sprite.svg#instagram"></use>
+          </svg>
+        </a>
         <a
-          class="icon github"
           href="https://github.com/pabloperezrodriguez"
           target="_blank"
           rel="noopener noreferrer"
-        ></a>
+        >
+          <svg class="icon github">
+            <use href="assets/sprite.svg#github"></use>
+          </svg>
+        </a>
       </div>
     </div>
     <footer>
       <a href="licenses.html"><u>Licenses</u> -&gt</a>
     </footer>
+
+    <!-- Preload ig-gradient.png (the classic Instagram gradient)
+    To prevent the user from waiting when they hover on the icon (see
+    style.css for the process by which I have the browser colour in
+    the instagram logo) -->
+    <img src="assets/ig-gradient.png" style="height:0; width:0;"></img>
+    <script src="js/app.js"></script>
   </body>
-  <script src="js/app.js"></script>
+  
 </html>

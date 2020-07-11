@@ -79,27 +79,52 @@ a {
   width: 3em;
   height: 3em;
 
-  background-size: 3em 3em;
-  background-repeat: no-repeat;
+  // By default the icons are white
+  fill: #c8c8c8;
 
-  &.github {
-    background-image: url('../assets/github-light.svg');
-
-    &:hover {
-      background-image: url('../assets/github-colour.svg');
-    }
+  // On hover icons get their brand colours
+  &.github:hover {
+    fill: rgb(79, 140, 201); // GitHub turns a purple-blue
   }
   &.instagram {
-    background-image: url('../assets/instagram-light.svg');
     &:hover {
-      background-image: url('../assets/instagram-colour.svg');
+      // On hover, the Instagram icon goes rainbow-coloured by a really 
+      // convoluted process, but I have not found any other way to make
+      // it work like I want it to.
+
+      // DOWNSIDE:
+      // This process also generates a request to get '../assets/sprite.svg',
+      // even though the browser had already requested that to display the
+      // default icons (via '<svg> <use href>').
+
+      // This process works as follows:
+
+      // I have to set the fill of the '<svg>' object as transparent
+      // to effectively remove the default Instagram icon from the user's view.
+      fill: transparent;
+
+      // Now I set the background of the icon to the classic Instagram gradient.
+      background-image: url(../assets/ig-gradient.png);
+      // And make it fill the whole icon (3em x 3em)
+      background-size: 3em 3em;
+
+      // And then, the browser uses the mask image I configure below
+      // to only display the pars of the gradient that line up with
+      // the mask.
     }
+
+    // I set a mask-image. That makes it so the browser only displays
+    // the parts of the gradient that line up with the mask.
+    // The mask is the Instagram icon (which is the icon you will see if you
+    // open the 'sprite.svg' file).
+
+    // I have a variable to avoid writing the value twice.
+    $mask-image: url(../assets/sprite.svg);
+    -webkit-mask-image: $mask-image; // Safari, Chrome, Edge, Opera...
+    mask-image: $mask-image; // Firefox
   }
-  &.twitter {
-    background-image: url('../assets/twitter-light.svg');
-    &:hover {
-      background-image: url('../assets/twitter-colour.svg');
-    }
+  &.twitter:hover {
+    fill: rgb(29, 161, 242); // Twitter turns blue
   }
 }
 
